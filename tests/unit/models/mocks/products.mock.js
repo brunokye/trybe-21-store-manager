@@ -13,6 +13,11 @@ const products = [
   }
 ];
 
+const newProduct = {
+  "name": "Bolsa que cabe a família"
+}
+
 module.exports = {
   products,
+  newProduct,
 }
