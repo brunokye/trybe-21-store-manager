@@ -15,9 +15,20 @@ const products = [
 
 const newProduct = {
   "name": "Bolsa que cabe a família"
-}
+};
+
+const updatedProduct = {
+  "id": 1,
+  "name": "Teste"
+};
+
+const removedProduct = {
+  "affectedRows": 1
+};
 
 module.exports = {
   products,
   newProduct,
-}
+  updatedProduct,
+  removedProduct,
+};

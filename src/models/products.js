@@ -5,7 +5,7 @@ const findAll = async () => {
     'SELECT * FROM products ORDER BY id',
   );
 
-  return (result);
+  return result;
 };
 
 const findById = async (productId) => {
@@ -14,7 +14,7 @@ const findById = async (productId) => {
     [productId],
   );
 
-  return (result);
+  return result;
 };
 
 const insert = async (product) => {
@@ -28,7 +28,7 @@ const insert = async (product) => {
 };
 
 const update = async (productId, productName) => {
-  const result = await connection.execute(
+  const [result] = await connection.execute(
     'UPDATE products SET name = (?) WHERE id = (?)',
     [productName, productId],
   );
@@ -42,7 +42,6 @@ const remove = async (productId) => {
     [productId],
   );
 
-  console.log(result);
   return result;
 };
 
