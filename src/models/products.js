@@ -4,6 +4,7 @@ const findAll = async () => {
   const [result] = await connection.execute(
     'SELECT * FROM products ORDER BY id',
   );
+  
   return (result);
 };
 
@@ -12,6 +13,7 @@ const findById = async (productId) => {
     'SELECT * FROM products WHERE id = ? ORDER BY id',
     [productId],
   );
+
   return (result);
 };
 
