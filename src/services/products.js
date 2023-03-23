@@ -11,8 +11,8 @@ const findById = async (productId) => {
   if (error.type) return error;
 
   const product = await productsModel.findById(productId);
-  if (!product) return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
 
+  if (!product) return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
   return { type: null, message: product };
 };
 
@@ -37,9 +37,21 @@ const updateProduct = async (productId, productName) => {
   return { type: null, message: updatedProduct };
 };
 
+const removeProduct = async (productId) => {
+  const error = await validateId(productId);
+  if (error.type) return error;
+
+  const removedProduct = await productsModel.remove(productId);
+  const { affectedRows } = removedProduct;
+
+  if (!affectedRows) return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
+  return { type: null, message: removedProduct };
+};
+
 module.exports = {
   findAll,
   findById,
   createProduct,
   updateProduct,
+  removeProduct,
 };
